@@ -80,8 +80,9 @@ topicExplorerApp.controller('MainCtrl', ['$scope', '$rootScope', '$http', '$wind
       params: {
         topicId: mid,
         part: 'snippet',
+        type: 'channel,video',
         maxResults: constants.YOUTUBE_API_MAX_RESULTS,
-        q: $scope.searchTerm || name
+        q: 'site:youtube.com'
       },
       callback: function(response) {
         $scope.$apply(function() {
