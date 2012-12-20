@@ -17,6 +17,11 @@
 'use strict';
 
 topicExplorerApp.controller('MainCtrl', ['$scope', '$rootScope', '$http', '$window', 'constants', 'youtube', function($scope, $rootScope, $http, $window, constants, youtube) {
+  
+  $scope.changeLanguage = function (lang) {
+	$rootScope.currentLanguage = lang;
+  }
+  
   $scope.topicSearch = function(searchTerm) {
     $scope.channelResults = [];
     $scope.playlistResults = [];

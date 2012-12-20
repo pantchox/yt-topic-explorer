@@ -3,7 +3,7 @@ CACHE MANIFEST
 # Time: Tue Dec 18 2012 12:48:06 GMT-0500 (EST)
 # This manifest was created by confess.js, http://github.com/jamesgpearce/confess
 #
-# Retrieved URL: http://localhost:3501/#/
+# Retrieved URL: http://localhost:3501/
 # User-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.12 Safari/535.11
 #
 # Config:
@@ -18,7 +18,7 @@ CACHE MANIFEST
 #   cacheFilter: .*
 #   networkFilter: null
 #  url: http://localhost:3501
-#  configFile: /usr/local/homebrew/Cellar/node/0.8.10/lib/node_modules/yeoman/lib/support/confess.json
+#  configFile: C:\Users\Matias\AppData\Roaming\npm\node_modules\yeoman\lib\support\confess.json
 
 CACHE:
 components/html5-boilerplate/css/normalize.css
