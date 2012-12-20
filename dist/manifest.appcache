@@ -1,44 +1,9 @@
-# Error: Unknown provider: aProvider <- a <- i18nFilter
-    at http://localhost:3501/scripts/vendor/angular.js:2627
-    at getService (http://localhost:3501/scripts/vendor/angular.js:2755)
-    at http://localhost:3501/scripts/vendor/angular.js:2632
-    at getService (http://localhost:3501/scripts/vendor/angular.js:2755)
-    at invoke (http://localhost:3501/scripts/vendor/angular.js:2773)
-    at http://localhost:3501/scripts/vendor/angular.js:2633
-    at getService (http://localhost:3501/scripts/vendor/angular.js:2755)
-    at http://localhost:3501/scripts/vendor/angular.js:9256
-    at filter (http://localhost:3501/scripts/vendor/angular.js:5921)
-    at _filterChain (http://localhost:3501/scripts/vendor/angular.js:5912)
-    at statements (http://localhost:3501/scripts/vendor/angular.js:5888)
-    at parser (http://localhost:3501/scripts/vendor/angular.js:5821)
-    at http://localhost:3501/scripts/vendor/angular.js:6387
-    at http://localhost:3501/scripts/vendor/angular.js:4767
-    at addTextInterpolateDirective (http://localhost:3501/scripts/vendor/angular.js:4399)
-    at collectDirectives (http://localhost:3501/scripts/vendor/angular.js:3901)
-    at compileNodes (http://localhost:3501/scripts/vendor/angular.js:3791)
-    at compileNodes (http://localhost:3501/scripts/vendor/angular.js:3800)
-    at compileNodes (http://localhost:3501/scripts/vendor/angular.js:3800)
-    at compileNodes (http://localhost:3501/scripts/vendor/angular.js:3800)
-    at compileNodes (http://localhost:3501/scripts/vendor/angular.js:3800)
-    at compileNodes (http://localhost:3501/scripts/vendor/angular.js:3800)
-    at compileNodes (http://localhost:3501/scripts/vendor/angular.js:3800)
-    at compile (http://localhost:3501/scripts/vendor/angular.js:3739)
-    at http://localhost:3501/scripts/vendor/angular.js:932
-    at http://localhost:3501/scripts/vendor/angular.js:7770
-    at http://localhost:3501/scripts/vendor/angular.js:7850
-    at http://localhost:3501/scripts/vendor/angular.js:933
-    at invoke (http://localhost:3501/scripts/vendor/angular.js:2788)
-    at bootstrap (http://localhost:3501/scripts/vendor/angular.js:934)
-    at angularInit (http://localhost:3501/scripts/vendor/angular.js:904)
-    at http://localhost:3501/scripts/vendor/angular.js:14323
-    at trigger (http://localhost:3501/scripts/vendor/angular.js:1695)
-    at http://localhost:3501/scripts/vendor/angular.js:1930 (undefined, #undefined)
 CACHE MANIFEST
 
-# Time: Thu Dec 20 2012 04:16:26 GMT-0300 (Hora estándar de Argentina)
+# Time: Thu Dec 20 2012 12:04:00 GMT-0300 (Hora estándar de Argentina)
 # This manifest was created by confess.js, http://github.com/jamesgpearce/confess
 #
-# Retrieved URL: http://localhost:3501/
+# Retrieved URL: http://localhost:3501/#/
 # User-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.12 Safari/535.11
 #
 # Config:
@@ -59,6 +24,8 @@ CACHE:
 components/html5-boilerplate/css/normalize.css
 components/lscache/lscache.js
 http://www.google-analytics.com/ga.js
+https://apis.google.com/_/scs/apps-static/_/js/k=oz.gapi.es.GAu1M3ZmKpU.O/m=client/am=iQ/rt=j/d=1/rs=AItRSTOLnaVPijVxsUEHFgn7w48Ib2Md-g/cb=gapi.loaded_0
+https://s.ytimg.com/yts/img/no_videos_140-vfl5AhOQY.png
 scripts/scripts.js
 scripts/vendor/angular.js
 styles/main.css

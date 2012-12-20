@@ -57,7 +57,7 @@ var lang = {
 			}
 		}
 
-topicExplorerApp.filter('i18n', function($rootScope) {
+topicExplorerApp.filter('i18n', ['$rootScope', function($rootScope) {
 	  return function(string) { 
 		    var log_untranslated = false;
 		    var placeholders = [];
@@ -84,4 +84,4 @@ topicExplorerApp.filter('i18n', function($rootScope) {
 		    }
 		    return sprintf(translated, placeholders);
 	  }
-});
+}]);
