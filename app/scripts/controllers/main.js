@@ -137,7 +137,7 @@ topicExplorerApp.controller('MainCtrl', ['$scope', '$rootScope', '$http', '$wind
   $scope.addToList = function(target, listName, videoId) {
     var listId = $rootScope.relatedPlaylists[listName];
 
-    target.textContent = 'Adding...';
+    target.textContent = topicExplorerApp.filter.i18n('ADDING');
     target.disabled = true;
 
     youtube({
@@ -159,7 +159,7 @@ topicExplorerApp.controller('MainCtrl', ['$scope', '$rootScope', '$http', '$wind
         if ('error' in results) {
           target.textContent = 'Error';
         } else {
-          target.textContent = 'Added';
+          target.textContent = topicExplorerApp.filter.i18n('ADDED');;
         }
       }
     });
@@ -194,7 +194,7 @@ topicExplorerApp.controller('MainCtrl', ['$scope', '$rootScope', '$http', '$wind
   };
 
   $scope.subscribeClicked = function(target, channelId) {
-    target.textContent = 'Subscribing...';
+    target.textContent = topicExplorerApp.filter.i18n('SUSCRIBING');
     target.disabled = true;
 
     youtube({
@@ -216,7 +216,7 @@ topicExplorerApp.controller('MainCtrl', ['$scope', '$rootScope', '$http', '$wind
         if ('error' in results) {
           target.textContent = 'Error';
         } else {
-          target.textContent = 'Subscribed';
+          target.textContent = topicExplorerApp.filter.i18n('SUSCRIBED');
         }
       }
     });
