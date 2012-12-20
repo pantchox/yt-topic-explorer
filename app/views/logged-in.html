@@ -1,5 +1,6 @@
 <div ng-controller="LoggedInCtrl">
   <img id="profile-thumbnail" ng-show="thumbnailUrl" ng-src="{{thumbnailUrl}}">
-  <span ng-hide="title">Fetching your channel info...</span>
-  <span ng-show="title">Hey, {{title}}!</span>
+  <span ng-hide="title">{{'FETCHING_CHANNEL_INFO'|i18n}}</span>
+  <span ng-show="title">{{'HEY'|i18n}}{{title}}!</span> 
+  <span ng-show="title" style="margin-left: 40px"><a ng-click="recommendations()">{{'YOUTUBE_RECOMMENDATIONS' | i18n}}</a></span>
 </div>

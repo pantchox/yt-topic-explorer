@@ -79,6 +79,30 @@ topicExplorerApp.controller('LoggedInCtrl', ['$scope', '$rootScope', '$http', 'c
       }
     });
   }
+  
+  $scope.recommendations = function() {
+	 youtube({
+	      method: 'GET',
+	      service: 'activities',
+	      params: {
+	        part: 'id,snippet,contentDetails',
+	        home: true,
+	        maxResults: constants.YOUTUBE_API_MAX_RESULTS
+	      },
+	      callback: function(response) {
+	    	  if ('items' in response) {
+		          $scope.videoIds = [];
+		          $scope.personalizedTopics = [];
+		          angular.forEach(response.items, function(activity) {
+		        	if ((activity.snippet.type == 'recommendation')&&(activity.contentDetails.recommendation.resourceId.videoId)){
+		        		$scope.videoIds.push(activity.contentDetails.recommendation.resourceId.videoId);
+		        	}
+		          });
+		      }
+		      getTopicsForVideoIds();
+	      }
+	  });
+  }
 
   function getTopicsForVideoIds() {
     var videoIds = $scope.videoIds.slice(0, 50);

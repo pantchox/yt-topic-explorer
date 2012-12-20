@@ -17,7 +17,7 @@
     <title>YouTube Topic Explorer</title>
     <meta name="description" content="A Freebase API + YouTube Data API v3 mashup."/>
     <meta name="viewport" content="width=device-width"/>
-    <link rel="icon" href="favicon.ico" type="image/png"/>
+    <link rel="icon" href="./favicon.ico" type="image/png"/>
 
     <link rel="stylesheet" href="components/html5-boilerplate/css/normalize.css"/>
     <link rel="stylesheet" href="styles/main.css"/>
@@ -29,12 +29,14 @@
       Google Chrome Frame</a> to better experience this site.</p>
     <![endif]-->
 
-    <div class="flex-box-container-column">
+    <div class="flex-box-container-column" ng-controller="MainCtrl">
       <div id="header">
         <ul>
-          <li><a href="about.html" target="_blank">About</a></li>
-          <li><a href="https://code.google.com/p/yt-topic-explorer/source/browse/#git%2Fapp" target="_blank">Source Code</a></li>
-          <li ng-show="channelId"><a ng-click="logout()">Log Out</a></li>
+          <li><a ng-click="changeLanguage('en')">{{'ENGLISH' | i18n}}</a></li>
+		  <li><a ng-click="changeLanguage('es')">{{'SPANISH' | i18n}}</a></li>
+          <li><a href="./about.html" target="_blank">{{'ABOUT' | i18n}}</a></li>
+          <li><a href="https://code.google.com/p/yt-topic-explorer/source/browse/#git%2Fapp" target="_blank">{{'SOURCE_CODE' | i18n}}</a></li>
+          <li ng-show="channelId"><a ng-click="logout()">{{'LOG_OUT' | i18n}}</a></li>
         </ul>
       </div>
       <div class="box" id="user-box" ng-include="'views/user.html'"></div>
