@@ -73,7 +73,7 @@ topicExplorerApp.filter('i18n', ['$rootScope', function($rootScope) {
 		        }
 		    }
 		    
-		    currentLanguage = $rootScope.currentLanguage || 'en';
+		    var currentLanguage = $rootScope.currentLanguage || 'en';
 		
 		    var translated = lang[currentLanguage][string]; //
 		    if (translated === undefined) {
