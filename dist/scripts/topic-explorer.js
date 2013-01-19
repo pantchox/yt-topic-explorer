@@ -55,7 +55,9 @@ topicExplorerApp.factory('constants', function() {
     YOUTUBE_VIDEO_PAGE_URL_PREFIX: 'http://youtu.be/',
     YOUTUBE_CHANNEL_PAGE_URL_PREFIX: 'http://youtube.com/channel/',
     YOUTUBE_PLAYLIST_PAGE_URL_PREFIX: 'http://www.youtube.com/playlist?list=',
-    DEFAULT_DISPLAY_NAME: 'Stranger'
+    DEFAULT_DISPLAY_NAME: 'Stranger',
+	RECOMMENDATION_TYPE: 'recommendation',
+	SOCIAL_TYPE: 'social'
   };
 });
 

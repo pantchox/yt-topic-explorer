@@ -94,8 +94,33 @@ topicExplorerApp.controller('LoggedInCtrl', ['$scope', '$rootScope', '$http', 'c
 		          $scope.videoIds = [];
 		          $scope.personalizedTopics = [];
 		          angular.forEach(response.items, function(activity) {
-		        	if ((activity.snippet.type == 'recommendation')&&(activity.contentDetails.recommendation.resourceId.videoId)){
+		        	if ((activity.snippet.type == constants.RECOMMENDATION_TYPE)&&(activity.contentDetails.recommendation.resourceId.videoId)){
 		        		$scope.videoIds.push(activity.contentDetails.recommendation.resourceId.videoId);
+		        	}
+		          });
+		      }
+		      getTopicsForVideoIds();
+	      }
+	  });
+  }
+  
+  $scope.social = function() {
+	 youtube({
+	      method: 'GET',
+	      service: 'activities',
+	      params: {
+	        part: 'id,snippet,contentDetails',
+	        home: true,
+	        maxResults: constants.YOUTUBE_API_MAX_RESULTS
+	      },
+	      callback: function(response) {
+	    	  if ('items' in response) {
+		          $scope.videoIds = [];
+		          $scope.personalizedTopics = [];
+		          angular.forEach(response.items, function(activity) {
+		        	//if ((activity.snippet.type == constants.SOCIAL_TYPE)&&(activity.contentDetails.social.resourceId.videoId)){
+					if ((activity.contentDetails.social)&&(activity.contentDetails.social.resourceId.videoId)){
+		        		$scope.videoIds.push(activity.contentDetails.social.resourceId.videoId);
 		        	}
 		          });
 		      }
