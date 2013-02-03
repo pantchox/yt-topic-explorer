@@ -53,6 +53,7 @@ topicExplorerApp.controller('UserCtrl', ['$scope', '$rootScope', '$http', '$wind
 
   $rootScope.logout = function() {
     lscache.flush();
+	$rootScope.topicResults = [];
     $rootScope.channelId = null;
     $scope.template = loggedOutTemplate;
     $http.jsonp(constants.OAUTH2_REVOKE_URL + gapi.auth.getToken().access_token);

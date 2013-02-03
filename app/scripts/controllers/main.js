@@ -31,6 +31,8 @@ topicExplorerApp.controller('MainCtrl', ['$scope', '$rootScope', '$http', '$wind
     if (data) {
       showTopics(data);
     } else {
+	  $rootScope.topicResults = [];
+	  $rootScope.searchStatus = '*'; 
       var request = $http.jsonp(constants.FREEBASE_API_URL, {
         params: {
           query: searchTerm,
@@ -49,7 +51,10 @@ topicExplorerApp.controller('MainCtrl', ['$scope', '$rootScope', '$http', '$wind
   }
 
   function showTopics(data) {
-    $scope.topicResults = data.result.map(function(result) {
+    //hide search progress
+    $rootScope.searchStatus = ''; 
+	//display topic results
+    $rootScope.topicResults = data.result.map(function(result) {
       var name = result.name;
       if (result.notable && result.notable.name) {
         name += ' (' + result.notable.name + ')';
@@ -159,7 +164,7 @@ topicExplorerApp.controller('MainCtrl', ['$scope', '$rootScope', '$http', '$wind
         if ('error' in results) {
           target.textContent = 'Error';
         } else {
-          target.textContent = topicExplorerApp.filter.i18n('ADDED');;
+          target.textContent = topicExplorerApp.filter.i18n('ADDED');
         }
       }
     });

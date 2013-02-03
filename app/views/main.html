@@ -1,6 +1,6 @@
 <div class="box">
   <form ng-submit="topicSearch(searchTerm)" class="flex-box-container-row">
-    <input id="search-term" type="text" ng-model="searchTerm" placeholder="{{'INTERESTED_IN'|i18n}}">
+    <input id="search-term" type="text" ng-model="searchTerm" placeholder="{{'INTERESTED_IN'|i18n}}"><span style="margin-left: 20px" >{{searchStatus}}</span>
   </form>
   <div ng-show="topicResults">
     <div class="result-heading">{{'TOPICS'|i18n}}</div>

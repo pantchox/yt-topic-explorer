@@ -39,6 +39,9 @@ topicExplorerApp.controller('LoggedInCtrl', ['$scope', '$rootScope', '$http', 'c
 
           $scope.videoIds = [];
           $scope.personalizedTopics = [];
+		  
+		  $rootScope.topicResults = [];
+		  $rootScope.searchStatus = '*'; 
 
           getPersonalizedVideoIds([$rootScope.relatedPlaylists.watchLater,
             $rootScope.relatedPlaylists.favorites,
@@ -81,6 +84,9 @@ topicExplorerApp.controller('LoggedInCtrl', ['$scope', '$rootScope', '$http', 'c
   }
   
   $scope.recommendations = function() {
+	$rootScope.topicResults = [];
+	$rootScope.searchStatus = '*'; 
+
 	 youtube({
 	      method: 'GET',
 	      service: 'activities',
@@ -105,28 +111,30 @@ topicExplorerApp.controller('LoggedInCtrl', ['$scope', '$rootScope', '$http', 'c
   }
   
   $scope.social = function() {
-	 youtube({
-	      method: 'GET',
-	      service: 'activities',
-	      params: {
-	        part: 'id,snippet,contentDetails',
-	        home: true,
-	        maxResults: constants.YOUTUBE_API_MAX_RESULTS
-	      },
-	      callback: function(response) {
-	    	  if ('items' in response) {
-		          $scope.videoIds = [];
-		          $scope.personalizedTopics = [];
-		          angular.forEach(response.items, function(activity) {
-		        	//if ((activity.snippet.type == constants.SOCIAL_TYPE)&&(activity.contentDetails.social.resourceId.videoId)){
-					if ((activity.contentDetails.social)&&(activity.contentDetails.social.resourceId.videoId)){
-		        		$scope.videoIds.push(activity.contentDetails.social.resourceId.videoId);
-		        	}
-		          });
-		      }
-		      getTopicsForVideoIds();
-	      }
-	  });
+	$rootScope.topicResults = [];
+	$rootScope.searchStatus = '*'; 
+
+	youtube({
+	  method: 'GET',
+	  service: 'activities',
+	  params: {
+		part: 'id,snippet,contentDetails',
+		home: true,
+		maxResults: constants.YOUTUBE_API_MAX_RESULTS
+	  },
+	  callback: function(response) {
+		  if ('items' in response) {
+			  $scope.videoIds = [];
+			  $scope.personalizedTopics = [];
+			  angular.forEach(response.items, function(activity) {
+				if ((activity.snippet.type == constants.SOCIAL_TYPE)&&(activity.contentDetails.social.resourceId.videoId)){
+					$scope.videoIds.push(activity.contentDetails.social.resourceId.videoId);
+				}
+			  });
+		  }
+		  getTopicsForVideoIds();
+	  }
+	});
   }
 
   function getTopicsForVideoIds() {
@@ -243,6 +251,7 @@ topicExplorerApp.controller('LoggedInCtrl', ['$scope', '$rootScope', '$http', 'c
     setTimeout(function() {
       $rootScope.$apply(function() {
         $rootScope.topicResults = topicsSortedByScore;
+		$rootScope.searchStatus = ''; 
       });
     }, 1);
   }
