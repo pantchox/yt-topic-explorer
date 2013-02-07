@@ -67,10 +67,18 @@ topicExplorerApp.controller('MainCtrl', ['$scope', '$rootScope', '$http', '$wind
       if (score < constants.MIN_SCORE) {
         score = constants.MIN_SCORE;
       }
-
+	  
+	  var maxheight = '';
+	  if (score > 90) {
+        maxheight = '&maxheight=200';
+      }
+	  
       return {
         name: name,
         mid: result.mid,
+		score: score,
+		maxheight: maxheight,
+		key: constants.API_KEY,
         style: {
           'font-size': score + '%',
           opacity: score / 100

@@ -4,8 +4,15 @@
   </form>
   <div ng-show="topicResults">
     <div class="result-heading">{{'TOPICS'|i18n}}</div>
-    <ul id="topic-results">
-      <li ng-repeat="topicResult in topicResults" ng-click="topicClicked(topicResult.mid, topicResult.name)" ng-style="topicResult.style">{{topicResult.name}}</li>
+    <ul id="topic-results-images">
+      <li ng-repeat="topicResult in topicResults" ng-click="topicClicked(topicResult.mid, topicResult.name)" ng-style="topicResult.style">
+		<img ng-src="https://usercontent.googleapis.com/freebase/v1/image{{topicResult.mid}}?key={{topicResult.key}}{{topicResult.maxheight}}">
+	  </li>
+    </ul>
+	<ul id="topic-results">
+      <li ng-repeat="topicResult in topicResults" ng-click="topicClicked(topicResult.mid, topicResult.name)" ng-style="topicResult.style">
+		{{topicResult.name}}
+	  </li>
     </ul>
   </div>
 </div>

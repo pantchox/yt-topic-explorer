@@ -231,10 +231,17 @@ topicExplorerApp.controller('LoggedInCtrl', ['$scope', '$rootScope', '$http', 'c
         normalizedScore = constants.MIN_SCORE;
       }
 
+	  var maxheight = '';
+	  if (normalizedScore > 90) {
+        maxheight = '&maxheight=200';
+      }
+	  
       $scope.personalizedTopics.push({
         name: name,
         mid: result.mid,
-        score: score,
+        score: normalizedScore,
+		maxheight: maxheight,
+		key: constants.API_KEY,
         style: {
           'font-size': normalizedScore + '%',
           opacity: normalizedScore / 100
