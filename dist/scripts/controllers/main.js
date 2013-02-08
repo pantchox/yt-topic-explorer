@@ -70,8 +70,10 @@ topicExplorerApp.controller('MainCtrl', ['$scope', '$rootScope', '$http', '$wind
 	  
 	  var maxheight = '';
 	  if (score > 90) {
-        maxheight = '&maxheight=200';
-      }
+        maxheight = '&maxwidth=64&maxheight=64';
+      }else{
+	    maxheight = '&maxwidth=32&maxheight=32';
+	  }
 	  
       return {
         name: name,
@@ -85,6 +87,7 @@ topicExplorerApp.controller('MainCtrl', ['$scope', '$rootScope', '$http', '$wind
         }
       }
     });
+	
   }
 
   $scope.topicClicked = function(mid, name) {

@@ -233,8 +233,10 @@ topicExplorerApp.controller('LoggedInCtrl', ['$scope', '$rootScope', '$http', 'c
 
 	  var maxheight = '';
 	  if (normalizedScore > 90) {
-        maxheight = '&maxheight=200';
-      }
+        maxheight = '&maxwidth=64&maxheight=64';
+      }else{
+	    maxheight = '&maxwidth=32&maxheight=32';
+	  }
 	  
       $scope.personalizedTopics.push({
         name: name,
