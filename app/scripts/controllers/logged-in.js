@@ -39,9 +39,7 @@ topicExplorerApp.controller('LoggedInCtrl', ['$scope', '$rootScope', '$http', 'c
 
           $scope.videoIds = [];
           $scope.personalizedTopics = [];
-		  
-		  $rootScope.topicResults = [];
-		  $rootScope.searchStatus = '*'; 
+          $rootScope.topicResults = [];
 
           getPersonalizedVideoIds([$rootScope.relatedPlaylists.watchLater,
             $rootScope.relatedPlaylists.favorites,
@@ -58,6 +56,8 @@ topicExplorerApp.controller('LoggedInCtrl', ['$scope', '$rootScope', '$http', 'c
       listIds = [listIds];
     }
     var listId = listIds.pop();
+
+    $rootScope.spinner.spin($('#spinner')[0]);
 
     youtube({
       method: 'GET',
@@ -84,8 +84,8 @@ topicExplorerApp.controller('LoggedInCtrl', ['$scope', '$rootScope', '$http', 'c
   }
   
   $scope.recommendations = function() {
-	$rootScope.topicResults = [];
-	$rootScope.searchStatus = '*'; 
+    $rootScope.topicResults = [];
+    $rootScope.spinner.spin($('#spinner')[0]);
 
 	 youtube({
 	      method: 'GET',
@@ -111,8 +111,8 @@ topicExplorerApp.controller('LoggedInCtrl', ['$scope', '$rootScope', '$http', 'c
   }
   
   $scope.social = function() {
-	$rootScope.topicResults = [];
-	$rootScope.searchStatus = '*'; 
+    $rootScope.topicResults = [];
+    $rootScope.spinner.spin($('#spinner')[0]);
 
 	youtube({
 	  method: 'GET',
@@ -260,7 +260,7 @@ topicExplorerApp.controller('LoggedInCtrl', ['$scope', '$rootScope', '$http', 'c
     setTimeout(function() {
       $rootScope.$apply(function() {
         $rootScope.topicResults = topicsSortedByScore;
-		$rootScope.searchStatus = ''; 
+        $rootScope.spinner.stop(); 
       });
     }, 1);
   }

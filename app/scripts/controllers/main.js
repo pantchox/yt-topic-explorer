@@ -18,6 +18,10 @@
 
 topicExplorerApp.controller('MainCtrl', ['$scope', '$rootScope', '$http', '$window', 'constants', 'youtube', function($scope, $rootScope, $http, $window, constants, youtube) {
   
+  var opts = {color: '#FFF'};
+  $rootScope.spinner = new Spinner(opts);
+  $rootScope.spinner.spin($('#spinner')[0]);
+  
   $scope.changeLanguage = function (lang) {
 	$rootScope.currentLanguage = lang;
   }
@@ -31,8 +35,8 @@ topicExplorerApp.controller('MainCtrl', ['$scope', '$rootScope', '$http', '$wind
     if (data) {
       showTopics(data);
     } else {
-	  $rootScope.topicResults = [];
-	  $rootScope.searchStatus = '*'; 
+      $rootScope.topicResults = [];
+      $rootScope.spinner.spin($('#spinner')[0]); 
       var request = $http.jsonp(constants.FREEBASE_API_URL, {
         params: {
           query: searchTerm,
@@ -51,9 +55,7 @@ topicExplorerApp.controller('MainCtrl', ['$scope', '$rootScope', '$http', '$wind
   }
 
   function showTopics(data) {
-    //hide search progress
-    $rootScope.searchStatus = ''; 
-	//display topic results
+    $rootScope.spinner.stop(); 
     $rootScope.topicResults = data.result.map(function(result) {
       var name = result.name;
       if (result.notable && result.notable.name) {
