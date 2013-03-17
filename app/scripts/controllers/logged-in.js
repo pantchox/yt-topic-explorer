@@ -83,6 +83,7 @@ topicExplorerApp.controller('LoggedInCtrl', ['$scope', '$rootScope', '$http', 'c
     });
   }
   
+  //Recommendations
   $scope.recommendations = function() {
     $rootScope.topicResults = [];
     $rootScope.spinner.spin($('#spinner')[0]);
@@ -110,6 +111,7 @@ topicExplorerApp.controller('LoggedInCtrl', ['$scope', '$rootScope', '$http', 'c
 	  });
   }
   
+  //Social
   $scope.social = function() {
     $rootScope.topicResults = [];
     $rootScope.spinner.spin($('#spinner')[0]);
