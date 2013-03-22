@@ -32,7 +32,7 @@ topicExplorerApp.controller('LoggedInCtrl', ['$scope', '$rootScope', '$http', 'c
           var channel = response.items[0];
 
           $scope.title = (channel.snippet.title.split(/\W/))[0] || constants.DEFAULT_DISPLAY_NAME;
-          $scope.thumbnailUrl = channel.snippet.thumbnails.default.url;
+          //$scope.thumbnailUrl = channel.snippet.thumbnails.default.url;
 
           $rootScope.channelId = channel.id;
           $rootScope.relatedPlaylists = channel.contentDetails.relatedPlaylists;
@@ -83,6 +83,7 @@ topicExplorerApp.controller('LoggedInCtrl', ['$scope', '$rootScope', '$http', 'c
     });
   }
   
+  //Recommendations
   $scope.recommendations = function() {
     $rootScope.topicResults = [];
     $rootScope.spinner.spin($('#spinner')[0]);
@@ -110,6 +111,7 @@ topicExplorerApp.controller('LoggedInCtrl', ['$scope', '$rootScope', '$http', 'c
 	  });
   }
   
+  //Social
   $scope.social = function() {
     $rootScope.topicResults = [];
     $rootScope.spinner.spin($('#spinner')[0]);
@@ -239,6 +241,7 @@ topicExplorerApp.controller('LoggedInCtrl', ['$scope', '$rootScope', '$http', 'c
 	  }
 	  
       $scope.personalizedTopics.push({
+	    id: result.id,
         name: name,
         mid: result.mid,
         score: normalizedScore,

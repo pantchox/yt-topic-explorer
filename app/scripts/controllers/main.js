@@ -21,6 +21,7 @@ topicExplorerApp.controller('MainCtrl', ['$scope', '$rootScope', '$http', '$wind
   var opts = {color: '#FFF'};
   $rootScope.spinner = new Spinner(opts);
   $rootScope.spinner.spin($('#spinner')[0]);
+  $rootScope.spinner.stop(); 
   
   $scope.changeLanguage = function (lang) {
 	$rootScope.currentLanguage = lang;
@@ -30,6 +31,7 @@ topicExplorerApp.controller('MainCtrl', ['$scope', '$rootScope', '$http', '$wind
     $scope.channelResults = [];
     $scope.playlistResults = [];
     $scope.videoResults = [];
+	$scope.relatedTopics = [];
 
     var data = lscache.get(searchTerm);
     if (data) {
@@ -78,6 +80,7 @@ topicExplorerApp.controller('MainCtrl', ['$scope', '$rootScope', '$http', '$wind
 	  }
 	  
       return {
+	    id: result.id,
         name: name,
         mid: result.mid,
 		score: score,
@@ -89,13 +92,42 @@ topicExplorerApp.controller('MainCtrl', ['$scope', '$rootScope', '$http', '$wind
         }
       }
     });
-	
+  }
+  
+  function retrieveTopicSummary(topicId) {
+	if (topicId) {
+      var data = lscache.get(topicId);
+      if (data) {
+		displayTopicSummary(data);
+	  } else {
+		var request = $http.jsonp(constants.FREEBASE_TOPIC_URL + '/' + topicId, {
+		  params: {
+			filter: 'suggest',
+			key: constants.API_KEY,
+			callback: 'JSON_CALLBACK'
+		  }
+		});
+		request.success(function(data) {
+		  if (data.id) {
+			lscache.set(topicId, data, constants.FREEBASE_CACHE_MINUTES);
+			displayTopicSummary(data);
+		  }
+		});
+	  }
+    }
+  }
+  
+  function displayTopicSummary(data) {
+	//TODO: Construct Topic panels similar to the Knowledge Graph panels in Google Search.
   }
 
-  $scope.topicClicked = function(mid, name) {
+  $scope.topicClicked = function(id, mid, name) {
     $scope.channelResults = [];
     $scope.playlistResults = [];
     $scope.videoResults = [];
+	$scope.relatedTopics = [];
+	
+	retrieveTopicSummary(id);
 
     youtube({
       method: 'GET',

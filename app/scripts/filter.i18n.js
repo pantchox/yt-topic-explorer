@@ -31,6 +31,7 @@ var lang = {
 			,'SUSCRIBED': 'Subscribed'
 			,'YOUTUBE_RECOMMENDATIONS': 'YouTube Recommendations'
 			,'SOCIAL': 'Social'
+			,'RELATED_TOPICS': 'Related topics'
 			},
 		'es' : {
 			'SPANISH': "Espanol"
@@ -56,6 +57,7 @@ var lang = {
 			,'SUSCRIBED': 'Suscripto'
 			,'YOUTUBE_RECOMMENDATIONS': 'Recomendaciones de YouTube'
 			,'SOCIAL': 'Social'
+			,'RELATED_TOPICS': 'Temas relacionados'
 			}
 		}
 

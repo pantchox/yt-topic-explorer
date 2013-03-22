@@ -39,6 +39,7 @@ topicExplorerApp.factory('constants', function() {
     OAUTH2_REVOKE_URL: 'https://accounts.google.com/o/oauth2/revoke?token=',
     API_KEY: 'AIzaSyAe112w0RobjC1XtoO3Os3YI6cvMZm9oKk',
     FREEBASE_API_URL: 'https://www.googleapis.com/freebase/v1/search',
+	FREEBASE_TOPIC_URL: 'https://www.googleapis.com/freebase/v1/topic',
     YOUTUBE_API_SERVICE: 'youtube',
     YOUTUBE_API_VERSION: 'v3',
     FREEBASE_API_MAX_RESULTS: 30,
