@@ -21,6 +21,7 @@ topicExplorerApp.controller('MainCtrl', ['$scope', '$rootScope', '$http', '$wind
   var opts = {color: '#FFF'};
   $rootScope.spinner = new Spinner(opts);
   $rootScope.spinner.spin($('#spinner')[0]);
+  $rootScope.spinner.stop();
   
   $scope.changeLanguage = function (lang) {
 	$rootScope.currentLanguage = lang;
