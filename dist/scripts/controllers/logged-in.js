@@ -32,7 +32,7 @@ topicExplorerApp.controller('LoggedInCtrl', ['$scope', '$rootScope', '$http', 'c
           var channel = response.items[0];
 
           $scope.title = (channel.snippet.title.split(/\W/))[0] || constants.DEFAULT_DISPLAY_NAME;
-          //$scope.thumbnailUrl = channel.snippet.thumbnails.default.url;
+          $scope.thumbnailUrl = channel.snippet.thumbnails.default.url;
 
           $rootScope.channelId = channel.id;
           $rootScope.relatedPlaylists = channel.contentDetails.relatedPlaylists;

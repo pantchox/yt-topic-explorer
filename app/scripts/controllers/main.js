@@ -119,6 +119,19 @@ topicExplorerApp.controller('MainCtrl', ['$scope', '$rootScope', '$http', '$wind
   
   function displayTopicSummary(data) {
 	//TODO: Construct Topic panels similar to the Knowledge Graph panels in Google Search.
+	var topicDescriptions = [];
+    var topicImages = [];
+	angular.forEach(data.property["/common/topic/article"].values, function(item) {
+		topicDescriptions.push({
+            text: item.text
+		});
+	});
+	angular.forEach(data.property["/common/topic/image"].values, function(item) {
+		topicImages.push({
+            text: item.text,
+			id: item.id
+		});
+	});
   }
 
   $scope.topicClicked = function(id, mid, name) {
