@@ -16,7 +16,7 @@
 
 'use strict';
 
-var topicExplorerApp = angular.module('topicExplorerApp', []);
+var topicExplorerApp = angular.module('topicExplorerApp', ['ngRoute']);
 
 topicExplorerApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider
